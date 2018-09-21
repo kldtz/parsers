@@ -29,7 +29,7 @@ def bfs_search_all(graph, start):
     while queue:
         vertex = queue.pop(0)
         if graph.is_goal(vertex):
-            return vertices.append(vertex)
+            vertices.append(vertex)
         if vertex not in visited:
             visited.add(vertex)
             queue.extend(graph.successors(vertex) - visited)
@@ -54,7 +54,7 @@ def dfs_search_all(graph, start):
     while stack:
         vertex = stack.pop()
         if graph.is_goal(vertex):
-            return vertices.append(vertex)
+            vertices.append(vertex)
         if vertex not in visited:
             visited.add(vertex)
             stack.extend(graph.successors(vertex) - visited)
