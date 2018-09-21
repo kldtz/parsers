@@ -1,0 +1,6 @@
+S -> Adv S
+S -> NP VP
+NP -> Det N
+NP -> Name
+VP -> V
+VP -> V NP

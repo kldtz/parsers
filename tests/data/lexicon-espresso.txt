@@ -1,0 +1,5 @@
+Adv -> Yesterday
+Name -> Chris
+V -> drank
+Det -> an
+N -> espresso

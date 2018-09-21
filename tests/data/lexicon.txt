@@ -1,0 +1,5 @@
+N -> Peter
+N -> coffee
+V -> likes
+V -> drinks
+A -> hot
