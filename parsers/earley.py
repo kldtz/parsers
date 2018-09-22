@@ -1,9 +1,7 @@
 import logging
 from functools import wraps
 
-from .shared import Rule, read_lexicon, read_grammar
-
-INDENT = ' ' * 4
+from .shared import Rule, read_lexicon, read_grammar, INDENT
 
 
 class State:
@@ -121,14 +119,14 @@ class EarleyRecognizer:
         return False
 
 
-def recognize_verbose(lexicon_path, grammar_path, tokens):
+def recognize(tokens, grammar_path, lexicon_path):
     logging.info('\nTokens: ' + str(tokens))
     logging.info('Loading lexicon and grammar...')
     lexicon = read_lexicon(lexicon_path)
     grammar = read_grammar(grammar_path)
     parser = EarleyRecognizer(grammar, lexicon)
 
-    logging.info('Running Earley algorithm...')
+    logging.info('\nRunning Earley algorithm...')
     part_of_lang = parser.recognize(tokens)
     logging.info('\nSentence is part of the language: ' + str(part_of_lang))
     logging.info('\nEarley sets:')
