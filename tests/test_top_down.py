@@ -11,7 +11,7 @@ class TestTopDown(unittest.TestCase):
     """
 
     def test_bfs(self):
-        grammar = read_grammar('tests/data/greibach_normal_form_grammar.txt')
+        grammar = read_grammar('data/greibach_normal_form_grammar.txt')
         parser = TopDownParser(grammar)
         tokens = ['a', 'a', 'b', 'b']
 
@@ -22,7 +22,7 @@ class TestTopDown(unittest.TestCase):
         self.assertListEqual(expectedRules, config.derivation)
 
     def test_dfs(self):
-        grammar = read_grammar('tests/data/greibach_normal_form_grammar.txt')
+        grammar = read_grammar('data/greibach_normal_form_grammar.txt')
         parser = TopDownParser(grammar)
         tokens = ['a', 'a', 'b', 'b']
 

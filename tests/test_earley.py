@@ -9,8 +9,8 @@ class TestEarleyParser(unittest.TestCase):
     """
 
     def test_simple_grammar(self):
-        lexicon = read_lexicon('tests/data/lexicon.txt')
-        grammar = read_grammar('tests/data/grammar.txt')
+        lexicon = read_lexicon('data/lexicon.txt')
+        grammar = read_grammar('data/grammar.txt')
         parser = EarleyRecognizer(grammar, lexicon)
         tokens = ['Peter', 'likes', 'hot', 'coffee']
 
@@ -19,8 +19,8 @@ class TestEarleyParser(unittest.TestCase):
         self.assertTrue(part_of_lang)
 
     def test_left_recursion(self):
-        lexicon = read_lexicon('tests/data/simple_lexicon.txt')
-        grammar = read_grammar('tests/data/left-recursive_grammar.txt')
+        lexicon = read_lexicon('data/simple_lexicon.txt')
+        grammar = read_grammar('data/left-recursive_grammar.txt')
         parser = EarleyRecognizer(grammar, lexicon)
         tokens = ['a', 'a', 'a', 'a']
 
@@ -32,8 +32,8 @@ class TestEarleyParser(unittest.TestCase):
         """
         Example grammar taken from Chris Culy's 2013 parsing course.
         """
-        lexicon = read_lexicon('tests/data/lexicon-espresso.txt')
-        grammar = read_grammar('tests/data/grammar-espresso.txt')
+        lexicon = read_lexicon('data/lexicon-espresso.txt')
+        grammar = read_grammar('data/grammar-espresso.txt')
         parser = EarleyRecognizer(grammar, lexicon)
         tokens = ['Yesterday', 'Chris', 'drank', 'an', 'espresso']
 
