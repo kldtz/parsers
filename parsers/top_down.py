@@ -13,7 +13,7 @@ class TopDownConfig:
         self.parent = parent
 
     def __repr__(self):
-        return '{}: {}'.format(self.ind, self.predictions)
+        return '{}: {}'.format(self.ind, ' '.join(self.predictions))
 
     @property
     def prediction(self):
@@ -35,15 +35,9 @@ class TopDownConfig:
 def log(func):
     @wraps(func)
     def wrapper(s, state):
-        f_string = '{}({})'
-        if func.__name__ == '_match':
-            f_string = INDENT + f_string
-        logging.info(f_string.format(func.__name__.strip('_'), state))
+        logging.info('{}({})'.format(func.__name__.strip('_'), state))
         rval = func(s, state)
-        f_string = INDENT + 'rval: {}'
-        if func.__name__ == '_match':
-            f_string = INDENT + f_string
-        logging.info(f_string.format(rval))
+        logging.info(INDENT + 'rval: {}'.format(rval))
         return rval
 
     return wrapper
