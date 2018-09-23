@@ -12,6 +12,14 @@
    stroke-width: 2px;
  }
 
-circle.goal {
-    stroke: red;
+circle.match {
+    stroke: orange;
+}
+
+circle.match[data-goal-path="true"] {
+    fill: orange;
+}
+
+circle.predict[data-goal-path="true"] {
+    fill: steelblue;
 }

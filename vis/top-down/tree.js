@@ -2,6 +2,25 @@ var table = d3.json("a-a-b-b-a-b.json", function(error, data) {
     drawTree(data);
 });
 
+function markPaths(node) {
+    if (node.data.isGoal) {
+        node.data.isGoalPath = true;
+        return true;
+    }
+    if (!node.children) {
+        node.data.isGoalPath = false;
+        return false;
+    }
+    var isGoalPath = false;
+    for (let child of node.children) {
+        if (markPaths(child)) {
+            isGoalPath = true
+        }
+    }
+    node.data.isGoalPath = isGoalPath;
+    return isGoalPath;
+}
+
 function drawTree(data) {
     var treeData = d3.stratify()
         .id(function(d) { return d.id; })
@@ -19,6 +38,9 @@ function drawTree(data) {
 
     // maps the node data to the tree layout
     nodes = treemap(treeData);
+
+    // add goal path attribute
+    markPaths(nodes);
 
     // append the svg object to the body of the page
     // appends a 'group' element to 'svg'
@@ -55,17 +77,19 @@ function drawTree(data) {
     // adds the circle to the node
     node.append("circle")
       .attr("class", function(d) {
-        return d.data.isGoal ? "goal" : "non-goal";
+        return (d.data.rule || !d.parent ? "predict" : "match");
       })
+      .attr("data-goal", function(d) { return d.data.isGoal;})
+      .attr("data-goal-path", function(d) { return d.data.isGoalPath; })
       .attr("r", 10);
 
     node.append("title")
-      .text(function(d) {return "Step " + d.id + (d.data.rule || !d.parent ? ": predict" : ": match")})
+      .text(function(d) {return 'Input[' + d.data.position + ']: ' + (d.data.rule || !d.parent ? "predict " + (d.data.rule ? d.data.rule : "S' -> S") : "match " + d.parent.data.prediction[0]);})
 
     // adds the text to the node
     node.append("text")
       .attr("dy", ".35em")
       .attr("y", function(d) { return d.children ? -20 : 20; })
       .style("text-anchor", "middle")
-      .text(function(d) { return d.data.position + ': ' + d.data.prediction.join(' '); });
+      .text(function(d) { return d.id + (d.data.prediction.length > 0 ? ':' + d.data.prediction.join('') : ''); });
 }
