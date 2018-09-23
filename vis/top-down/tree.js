@@ -1,4 +1,4 @@
-var table = d3.json("a-a-b-b-a-b.json", function(error, data) {
+d3.json("json-data/a-a-b-b-a-b-lexicographic-reverse.json").then(function(data) {
     drawTree(data);
 });
 
@@ -37,7 +37,7 @@ function drawTree(data) {
         .size([width, height]);
 
     // maps the node data to the tree layout
-    nodes = treemap(treeData);
+    var nodes = treemap(treeData);
 
     // add goal path attribute
     markPaths(nodes);
@@ -45,7 +45,7 @@ function drawTree(data) {
     // append the svg object to the body of the page
     // appends a 'group' element to 'svg'
     // moves the 'group' element to the top left margin
-    var svg = d3.select("body").append("svg")
+    var svg = d3.select("#tree")
           .attr("width", width + margin.left + margin.right)
           .attr("height", height + margin.top + margin.bottom),
         g = svg.append("g")
@@ -84,7 +84,7 @@ function drawTree(data) {
       .attr("r", 10);
 
     node.append("title")
-      .text(function(d) {return 'Input[' + d.data.position + ']: ' + (d.data.rule || !d.parent ? "predict " + (d.data.rule ? d.data.rule : "S' -> S") : "match " + d.parent.data.prediction[0]);})
+      .text(function(d) {return d.data.position + ': ' + (d.data.rule || !d.parent ? "predict " + (d.data.rule ? d.data.rule : "S' -> S") : "match " + d.parent.data.prediction[0]);})
 
     // adds the text to the node
     node.append("text")
@@ -93,3 +93,23 @@ function drawTree(data) {
       .style("text-anchor", "middle")
       .text(function(d) { return d.id + (d.data.prediction.length > 0 ? ':' + d.data.prediction.join('') : ''); });
 }
+
+d3.select("#generate")
+    .on("click", writeDownloadLink);
+
+function writeDownloadLink(){
+    try {
+        var isFileSaverSupported = !!new Blob();
+    } catch (e) {
+        alert("blob not supported");
+    }
+
+    var html = d3.select("svg")
+        .attr("title", "test2")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node().parentNode.innerHTML;
+
+    var blob = new Blob([html], {type: "image/svg+xml"});
+    saveAs(blob, "tree.svg");
+};

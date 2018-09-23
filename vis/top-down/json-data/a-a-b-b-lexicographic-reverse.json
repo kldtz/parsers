@@ -1,0 +1,280 @@
+[
+    {
+        "id": 1,
+        "isGoal": false,
+        "position": 0,
+        "prediction": [
+            "S"
+        ]
+    },
+    {
+        "id": 2,
+        "isGoal": false,
+        "parentId": 1,
+        "position": 0,
+        "prediction": [
+            "b",
+            "A"
+        ],
+        "rule": "S -> b A"
+    },
+    {
+        "id": 3,
+        "isGoal": false,
+        "parentId": 1,
+        "position": 0,
+        "prediction": [
+            "a",
+            "B"
+        ],
+        "rule": "S -> a B"
+    },
+    {
+        "id": 4,
+        "isGoal": false,
+        "parentId": 3,
+        "position": 1,
+        "prediction": [
+            "B"
+        ]
+    },
+    {
+        "id": 5,
+        "isGoal": false,
+        "parentId": 4,
+        "position": 1,
+        "prediction": [
+            "b",
+            "S"
+        ],
+        "rule": "B -> b S"
+    },
+    {
+        "id": 6,
+        "isGoal": false,
+        "parentId": 4,
+        "position": 1,
+        "prediction": [
+            "b"
+        ],
+        "rule": "B -> b"
+    },
+    {
+        "id": 7,
+        "isGoal": false,
+        "parentId": 4,
+        "position": 1,
+        "prediction": [
+            "a",
+            "B",
+            "B"
+        ],
+        "rule": "B -> a B B"
+    },
+    {
+        "id": 8,
+        "isGoal": false,
+        "parentId": 7,
+        "position": 2,
+        "prediction": [
+            "B",
+            "B"
+        ]
+    },
+    {
+        "id": 9,
+        "isGoal": false,
+        "parentId": 8,
+        "position": 2,
+        "prediction": [
+            "b",
+            "S",
+            "B"
+        ],
+        "rule": "B -> b S"
+    },
+    {
+        "id": 10,
+        "isGoal": false,
+        "parentId": 9,
+        "position": 3,
+        "prediction": [
+            "S",
+            "B"
+        ]
+    },
+    {
+        "id": 11,
+        "isGoal": false,
+        "parentId": 10,
+        "position": 3,
+        "prediction": [
+            "b",
+            "A",
+            "B"
+        ],
+        "rule": "S -> b A"
+    },
+    {
+        "id": 12,
+        "isGoal": false,
+        "parentId": 11,
+        "position": 4,
+        "prediction": [
+            "A",
+            "B"
+        ]
+    },
+    {
+        "id": 13,
+        "isGoal": false,
+        "parentId": 12,
+        "position": 4,
+        "prediction": [
+            "b",
+            "A",
+            "A",
+            "B"
+        ],
+        "rule": "A -> b A A"
+    },
+    {
+        "id": 14,
+        "isGoal": false,
+        "parentId": 12,
+        "position": 4,
+        "prediction": [
+            "a",
+            "S",
+            "B"
+        ],
+        "rule": "A -> a S"
+    },
+    {
+        "id": 15,
+        "isGoal": false,
+        "parentId": 12,
+        "position": 4,
+        "prediction": [
+            "a",
+            "B"
+        ],
+        "rule": "A -> a"
+    },
+    {
+        "id": 16,
+        "isGoal": false,
+        "parentId": 10,
+        "position": 3,
+        "prediction": [
+            "a",
+            "B",
+            "B"
+        ],
+        "rule": "S -> a B"
+    },
+    {
+        "id": 17,
+        "isGoal": false,
+        "parentId": 8,
+        "position": 2,
+        "prediction": [
+            "b",
+            "B"
+        ],
+        "rule": "B -> b"
+    },
+    {
+        "id": 18,
+        "isGoal": false,
+        "parentId": 17,
+        "position": 3,
+        "prediction": [
+            "B"
+        ]
+    },
+    {
+        "id": 19,
+        "isGoal": false,
+        "parentId": 18,
+        "position": 3,
+        "prediction": [
+            "b",
+            "S"
+        ],
+        "rule": "B -> b S"
+    },
+    {
+        "id": 20,
+        "isGoal": false,
+        "parentId": 19,
+        "position": 4,
+        "prediction": [
+            "S"
+        ]
+    },
+    {
+        "id": 21,
+        "isGoal": false,
+        "parentId": 20,
+        "position": 4,
+        "prediction": [
+            "b",
+            "A"
+        ],
+        "rule": "S -> b A"
+    },
+    {
+        "id": 22,
+        "isGoal": false,
+        "parentId": 20,
+        "position": 4,
+        "prediction": [
+            "a",
+            "B"
+        ],
+        "rule": "S -> a B"
+    },
+    {
+        "id": 23,
+        "isGoal": false,
+        "parentId": 18,
+        "position": 3,
+        "prediction": [
+            "b"
+        ],
+        "rule": "B -> b"
+    },
+    {
+        "id": 24,
+        "isGoal": true,
+        "parentId": 23,
+        "position": 4,
+        "prediction": []
+    },
+    {
+        "id": 25,
+        "isGoal": false,
+        "parentId": 18,
+        "position": 3,
+        "prediction": [
+            "a",
+            "B",
+            "B"
+        ],
+        "rule": "B -> a B B"
+    },
+    {
+        "id": 26,
+        "isGoal": false,
+        "parentId": 8,
+        "position": 2,
+        "prediction": [
+            "a",
+            "B",
+            "B",
+            "B"
+        ],
+        "rule": "B -> a B B"
+    }
+]

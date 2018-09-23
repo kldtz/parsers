@@ -19,7 +19,8 @@ def dfs_search_all_steps(graph, start):
         steps.append(step)
         if vertex not in visited:
             visited[vertex] = i
-            stack.extend(graph.successors(vertex) - visited.keys())
+            new_vertices = graph.successors(vertex) - visited.keys()
+            stack.extend(sorted(new_vertices, key=lambda x: ''.join(x.predictions), reverse=True))
     return steps
 
 
@@ -30,11 +31,11 @@ def write(text, path):
 
 if __name__ == '__main__':
 
-    tokens = 'a a b b a b'.split()
+    tokens = 'a a b b'.split()
     grammar_path = 'data/greibach_normal_form_grammar.txt'
     grammar = read_grammar(grammar_path)
     parser = TopDownParser(grammar)
 
     steps = parser.parse(tokens, dfs_search_all_steps)
     json_steps = json.dumps(steps, indent=4, sort_keys=True)
-    write(json_steps, 'vis/top-down/' + '-'.join(tokens) + '.json')
+    write(json_steps, 'vis/top-down/' + '-'.join(tokens) + '-lexicographic.json')

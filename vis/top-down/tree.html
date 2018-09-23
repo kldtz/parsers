@@ -1,12 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Parser Config Tree</title>
     <link rel="stylesheet" href="tree.css">
-    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <script src="lib/d3/d3.min.js"></script>
+    <script src="lib/file-saver/FileSaver.min.js"></script>
 </head>
+
 <body>
+    <div>
+        <button id="generate">Save as SVG</button>
+    </div>
+    <div id="diagram">
+        <svg id="tree" width="0" height="0">
+            <style>
+                .node circle {
+                    fill: #fff;
+                    stroke: steelblue;
+                    stroke-width: 3px;
+                }
+
+                .node text {
+                    font: 12px sans-serif;
+                }
+
+                .link {
+                    fill: none;
+                    stroke: #ccc;
+                    stroke-width: 2px;
+                }
+
+                circle:hover {
+                    transform: scale(1.1, 1.1);
+                }
+
+                circle.match {
+                    stroke: orange;
+                }
+
+                circle.match[data-goal-path="true"] {
+                    fill: orange;
+                }
+
+                circle.predict[data-goal-path="true"] {
+                    fill: steelblue;
+                }
+            </style>
+
+        </svg>
+    </div>
+    </div>
     <script src="tree.js"></script>
 </body>
+
 </html>
