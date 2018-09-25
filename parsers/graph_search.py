@@ -59,4 +59,3 @@ def dfs_search_all(graph, start):
             visited.add(vertex)
             stack.extend(graph.successors(vertex) - visited)
     return vertices
-

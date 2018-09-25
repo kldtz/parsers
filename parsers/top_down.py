@@ -5,7 +5,7 @@ from .graph_search import Graph
 from .shared import concat_tuples, read_grammar, INDENT
 
 
-class TopDownConfig:
+class UniqueTopDownConfig:
     def __init__(self, ind, predictions, rule, parent):
         self.ind = ind
         self.predictions = predictions
@@ -43,7 +43,7 @@ def log(func):
     return wrapper
 
 
-class TopDownParser(Graph):
+class NaiveTopDownParser(Graph):
     """
     Naive top-down parser implementation.
     """
@@ -54,7 +54,7 @@ class TopDownParser(Graph):
 
     def parse(self, input, search):
         self.input = input
-        start_config = TopDownConfig(0, ('S',), None, None)
+        start_config = UniqueTopDownConfig(0, ('S',), None, None)
         return search(self, start_config)
 
     def successors(self, config):
@@ -68,14 +68,15 @@ class TopDownParser(Graph):
     @log
     def _match(self, config):
         if config.ind < len(self.input) and config.prediction == self.input[config.ind]:
-            return {TopDownConfig(config.ind + 1, config.predictions[1:], None, config)}
+            return {UniqueTopDownConfig(config.ind + 1, config.predictions[1:], None, config)}
         return set()
 
     @log
     def _predict(self, config):
         configs = []
         for rule in self.grammar[config.prediction]:
-            configs.append(TopDownConfig(config.ind, concat_tuples(rule.rhs, config.predictions[1:]), rule, config))
+            configs.append(
+                UniqueTopDownConfig(config.ind, concat_tuples(rule.rhs, config.predictions[1:]), rule, config))
         return set(configs)
 
 
@@ -84,7 +85,7 @@ def parse(tokens, grammar_path, search):
     logging.info('Loading lexicon and grammar...')
     grammar = read_grammar(grammar_path)
     logging.info('\nRunning top-down parser...')
-    parser = TopDownParser(grammar)
+    parser = NaiveTopDownParser(grammar)
 
     configs = parser.parse(tokens, search)
     if not configs:
@@ -95,3 +96,64 @@ def parse(tokens, grammar_path, search):
     for i, config in enumerate(configs):
         logging.info('\nDerivation {}:'.format(i + 1))
         logging.info(config.derivation)
+
+
+class TopDownConfig():
+    def __init__(self, ind, predictions, rule):
+        super().__init__()
+        self.ind = ind
+        self.predictions = predictions
+        self.rule = rule
+
+    def __repr__(self):
+        return '{}: {}'.format(self.ind, ' '.join(self.predictions))
+
+    def __hash__(self):
+        return hash((self.ind, self.predictions))
+
+    def __eq__(self, other):
+        return (type(self) is type(other) and
+                self.ind == other.ind and
+                self.predictions == other.predictions)
+
+    @property
+    def prediction(self):
+        if self.predictions:
+            return self.predictions[0]
+        return None
+
+
+class TopDownParser(Graph):
+    """
+    Naive top-down parser implementation.
+    """
+
+    def __init__(self, grammar):
+        self.grammar = grammar
+        self.input = None
+
+    def parse(self, input, search):
+        self.input = input
+        start_config = TopDownConfig(0, ('S',), None)
+        return search(self, start_config)
+
+    def successors(self, config):
+        if config.prediction in self.grammar:
+            return self._predict(config)
+        return self._match(config)
+
+    def is_goal(self, config):
+        return not config.prediction and len(self.input) == config.ind
+
+    @log
+    def _match(self, config):
+        if config.ind < len(self.input) and config.prediction == self.input[config.ind]:
+            return {TopDownConfig(config.ind + 1, config.predictions[1:], None)}
+        return set()
+
+    @log
+    def _predict(self, config):
+        configs = []
+        for rule in self.grammar[config.prediction]:
+            configs.append(TopDownConfig(config.ind, concat_tuples(rule.rhs, config.predictions[1:]), rule))
+        return set(configs)

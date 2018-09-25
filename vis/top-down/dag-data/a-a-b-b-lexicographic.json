@@ -1,0 +1,212 @@
+[
+    {
+        "id": 1,
+        "isGoal": false,
+        "parents": [
+            null
+        ],
+        "position": 0
+    },
+    {
+        "id": 2,
+        "isGoal": false,
+        "parents": [
+            1
+        ],
+        "position": 0,
+        "rule": "S -> a B"
+    },
+    {
+        "id": 3,
+        "isGoal": false,
+        "parents": [
+            2
+        ],
+        "position": 1
+    },
+    {
+        "id": 4,
+        "isGoal": false,
+        "parents": [
+            3
+        ],
+        "position": 1,
+        "rule": "B -> a B B"
+    },
+    {
+        "id": 5,
+        "isGoal": false,
+        "parents": [
+            4
+        ],
+        "position": 2
+    },
+    {
+        "id": 6,
+        "isGoal": false,
+        "parents": [
+            5
+        ],
+        "position": 2,
+        "rule": "B -> a B B"
+    },
+    {
+        "id": 7,
+        "isGoal": false,
+        "parents": [
+            5
+        ],
+        "position": 2,
+        "rule": "B -> b"
+    },
+    {
+        "id": 8,
+        "isGoal": false,
+        "parents": [
+            7
+        ],
+        "position": 3
+    },
+    {
+        "id": 9,
+        "isGoal": false,
+        "parents": [
+            8,
+            17
+        ],
+        "position": 3,
+        "rule": "B -> a B B"
+    },
+    {
+        "id": 10,
+        "isGoal": false,
+        "parents": [
+            8
+        ],
+        "position": 3,
+        "rule": "B -> b"
+    },
+    {
+        "id": 11,
+        "isGoal": true,
+        "parents": [
+            10
+        ],
+        "position": 4
+    },
+    {
+        "id": 12,
+        "isGoal": false,
+        "parents": [
+            8
+        ],
+        "position": 3,
+        "rule": "B -> b S"
+    },
+    {
+        "id": 13,
+        "isGoal": false,
+        "parents": [
+            12
+        ],
+        "position": 4
+    },
+    {
+        "id": 14,
+        "isGoal": false,
+        "parents": [
+            13,
+            19
+        ],
+        "position": 4,
+        "rule": "S -> a B"
+    },
+    {
+        "id": 15,
+        "isGoal": false,
+        "parents": [
+            13
+        ],
+        "position": 4,
+        "rule": "S -> b A"
+    },
+    {
+        "id": 16,
+        "isGoal": false,
+        "parents": [
+            5
+        ],
+        "position": 2,
+        "rule": "B -> b S"
+    },
+    {
+        "id": 17,
+        "isGoal": false,
+        "parents": [
+            16
+        ],
+        "position": 3
+    },
+    {
+        "id": 18,
+        "isGoal": false,
+        "parents": [
+            17
+        ],
+        "position": 3,
+        "rule": "S -> b A"
+    },
+    {
+        "id": 19,
+        "isGoal": false,
+        "parents": [
+            18
+        ],
+        "position": 4
+    },
+    {
+        "id": 20,
+        "isGoal": false,
+        "parents": [
+            19
+        ],
+        "position": 4,
+        "rule": "A -> a S"
+    },
+    {
+        "id": 21,
+        "isGoal": false,
+        "parents": [
+            19
+        ],
+        "position": 4,
+        "rule": "A -> b A A"
+    },
+    {
+        "id": 22,
+        "isGoal": false,
+        "parents": [
+            3
+        ],
+        "position": 1,
+        "rule": "B -> b"
+    },
+    {
+        "id": 23,
+        "isGoal": false,
+        "parents": [
+            3
+        ],
+        "position": 1,
+        "rule": "B -> b S"
+    },
+    {
+        "id": 24,
+        "isGoal": false,
+        "parents": [
+            1
+        ],
+        "position": 0,
+        "rule": "S -> b A"
+    }
+]

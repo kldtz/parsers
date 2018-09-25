@@ -1,6 +1,6 @@
 import unittest
 
-from parsers.top_down import TopDownParser
+from parsers.top_down import NaiveTopDownParser
 from parsers.shared import read_grammar, Rule
 from parsers.graph_search import bfs_search_first, dfs_search_first
 
@@ -12,7 +12,7 @@ class TestTopDown(unittest.TestCase):
 
     def test_bfs(self):
         grammar = read_grammar('data/greibach_normal_form_grammar.txt')
-        parser = TopDownParser(grammar)
+        parser = NaiveTopDownParser(grammar)
         tokens = ['a', 'a', 'b', 'b']
 
         config = parser.parse(tokens, bfs_search_first)
@@ -23,7 +23,7 @@ class TestTopDown(unittest.TestCase):
 
     def test_dfs(self):
         grammar = read_grammar('data/greibach_normal_form_grammar.txt')
-        parser = TopDownParser(grammar)
+        parser = NaiveTopDownParser(grammar)
         tokens = ['a', 'a', 'b', 'b']
 
         config = parser.parse(tokens, dfs_search_first)
