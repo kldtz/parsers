@@ -32,13 +32,14 @@ def dfs_search_all_dag(graph, start):
         vertex, parent_id = stack.pop()
         if vertex not in visited:
             i += 1
-            json_node = {"id": i, "position": vertex.ind, "isGoal": False, "parents": [parent_id]}
+            json_node = {"id": i, "position": vertex.ind, "isGoal": False, "parents": [parent_id],
+                         'prediction': vertex.predictions}
             if graph.is_goal(vertex):
                 json_node["isGoal"] = True
             if vertex.rule:
                 json_node["rule"] = str(vertex.rule)
             stack.extend([(successor, i) for successor in
-                          sorted(graph.successors(vertex), key=lambda x: ''.join(x.predictions), reverse=True)])
+                          sorted(graph.successors(vertex), key=lambda x: ''.join(x.predictions), reverse=False)])
             visited[vertex] = json_node
         else:
             visited[vertex]["parents"].append(parent_id)
@@ -56,6 +57,6 @@ if __name__ == '__main__':
     grammar = read_grammar(grammar_path)
     parser = TopDownParser(grammar)
 
-    vertices = list(parser.parse(tokens, dfs_search_all_dag))
+    vertices = sorted(parser.parse(tokens, dfs_search_all_dag), key=lambda x: x["id"])
     json_steps = json.dumps(vertices, indent=4, sort_keys=True)
-    write(json_steps, 'vis/top-down/dag-data/' + '-'.join(tokens) + '-lexicographic.json')
+    write(json_steps, 'vis/top-down/dag-data/' + '-'.join(tokens) + '-lexicographic-reverse.json')

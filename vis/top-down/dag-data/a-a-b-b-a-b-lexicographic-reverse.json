@@ -18,21 +18,23 @@
         ],
         "position": 0,
         "prediction": [
-            "a",
-            "B"
+            "b",
+            "A"
         ],
-        "rule": "S -> a B"
+        "rule": "S -> b A"
     },
     {
         "id": 3,
         "isGoal": false,
         "parents": [
-            2
+            1
         ],
-        "position": 1,
+        "position": 0,
         "prediction": [
+            "a",
             "B"
-        ]
+        ],
+        "rule": "S -> a B"
     },
     {
         "id": 4,
@@ -42,11 +44,8 @@
         ],
         "position": 1,
         "prediction": [
-            "a",
-            "B",
             "B"
-        ],
-        "rule": "B -> a B B"
+        ]
     },
     {
         "id": 5,
@@ -54,39 +53,38 @@
         "parents": [
             4
         ],
-        "position": 2,
+        "position": 1,
         "prediction": [
-            "B",
-            "B"
-        ]
+            "b",
+            "S"
+        ],
+        "rule": "B -> b S"
     },
     {
         "id": 6,
         "isGoal": false,
         "parents": [
-            5
+            4
         ],
-        "position": 2,
+        "position": 1,
         "prediction": [
-            "a",
-            "B",
-            "B",
-            "B"
+            "b"
         ],
-        "rule": "B -> a B B"
+        "rule": "B -> b"
     },
     {
         "id": 7,
         "isGoal": false,
         "parents": [
-            5
+            4
         ],
-        "position": 2,
+        "position": 1,
         "prediction": [
-            "b",
+            "a",
+            "B",
             "B"
         ],
-        "rule": "B -> b"
+        "rule": "B -> a B B"
     },
     {
         "id": 8,
@@ -94,8 +92,9 @@
         "parents": [
             7
         ],
-        "position": 3,
+        "position": 2,
         "prediction": [
+            "B",
             "B"
         ]
     },
@@ -103,28 +102,27 @@
         "id": 9,
         "isGoal": false,
         "parents": [
-            8,
-            25
+            8
         ],
-        "position": 3,
+        "position": 2,
         "prediction": [
-            "a",
-            "B",
+            "b",
+            "S",
             "B"
         ],
-        "rule": "B -> a B B"
+        "rule": "B -> b S"
     },
     {
         "id": 10,
         "isGoal": false,
         "parents": [
-            8
+            9
         ],
         "position": 3,
         "prediction": [
-            "b"
-        ],
-        "rule": "B -> b"
+            "S",
+            "B"
+        ]
     },
     {
         "id": 11,
@@ -132,21 +130,25 @@
         "parents": [
             10
         ],
-        "position": 4,
-        "prediction": []
+        "position": 3,
+        "prediction": [
+            "b",
+            "A",
+            "B"
+        ],
+        "rule": "S -> b A"
     },
     {
         "id": 12,
         "isGoal": false,
         "parents": [
-            8
+            11
         ],
-        "position": 3,
+        "position": 4,
         "prediction": [
-            "b",
-            "S"
-        ],
-        "rule": "B -> b S"
+            "A",
+            "B"
+        ]
     },
     {
         "id": 13,
@@ -156,22 +158,26 @@
         ],
         "position": 4,
         "prediction": [
-            "S"
-        ]
+            "b",
+            "A",
+            "A",
+            "B"
+        ],
+        "rule": "A -> b A A"
     },
     {
         "id": 14,
         "isGoal": false,
         "parents": [
-            13,
-            27
+            12
         ],
         "position": 4,
         "prediction": [
             "a",
+            "S",
             "B"
         ],
-        "rule": "S -> a B"
+        "rule": "A -> a S"
     },
     {
         "id": 15,
@@ -181,6 +187,7 @@
         ],
         "position": 5,
         "prediction": [
+            "S",
             "B"
         ]
     },
@@ -188,72 +195,82 @@
         "id": 16,
         "isGoal": false,
         "parents": [
-            15,
-            29
-        ],
-        "position": 5,
-        "prediction": [
-            "a",
-            "B",
-            "B"
-        ],
-        "rule": "B -> a B B"
-    },
-    {
-        "id": 17,
-        "isGoal": false,
-        "parents": [
-            15
-        ],
-        "position": 5,
-        "prediction": [
-            "b"
-        ],
-        "rule": "B -> b"
-    },
-    {
-        "id": 18,
-        "isGoal": true,
-        "parents": [
-            17
-        ],
-        "position": 6,
-        "prediction": []
-    },
-    {
-        "id": 19,
-        "isGoal": false,
-        "parents": [
             15
         ],
         "position": 5,
         "prediction": [
             "b",
-            "S"
+            "A",
+            "B"
         ],
-        "rule": "B -> b S"
+        "rule": "S -> b A"
+    },
+    {
+        "id": 17,
+        "isGoal": false,
+        "parents": [
+            16
+        ],
+        "position": 6,
+        "prediction": [
+            "A",
+            "B"
+        ]
+    },
+    {
+        "id": 18,
+        "isGoal": false,
+        "parents": [
+            17
+        ],
+        "position": 6,
+        "prediction": [
+            "b",
+            "A",
+            "A",
+            "B"
+        ],
+        "rule": "A -> b A A"
+    },
+    {
+        "id": 19,
+        "isGoal": false,
+        "parents": [
+            17
+        ],
+        "position": 6,
+        "prediction": [
+            "a",
+            "S",
+            "B"
+        ],
+        "rule": "A -> a S"
     },
     {
         "id": 20,
         "isGoal": false,
         "parents": [
-            19
+            17,
+            25
         ],
         "position": 6,
         "prediction": [
-            "S"
-        ]
+            "a",
+            "B"
+        ],
+        "rule": "A -> a"
     },
     {
         "id": 21,
         "isGoal": false,
         "parents": [
-            20,
-            31
+            15,
+            23
         ],
-        "position": 6,
+        "position": 5,
         "prediction": [
             "a",
+            "B",
             "B"
         ],
         "rule": "S -> a B"
@@ -262,39 +279,37 @@
         "id": 22,
         "isGoal": false,
         "parents": [
-            20
+            12,
+            33
         ],
-        "position": 6,
+        "position": 4,
         "prediction": [
-            "b",
-            "A"
+            "a",
+            "B"
         ],
-        "rule": "S -> b A"
+        "rule": "A -> a"
     },
     {
         "id": 23,
         "isGoal": false,
         "parents": [
-            13
+            22
         ],
-        "position": 4,
+        "position": 5,
         "prediction": [
-            "b",
-            "A"
-        ],
-        "rule": "S -> b A"
+            "B"
+        ]
     },
     {
         "id": 24,
         "isGoal": false,
         "parents": [
-            5
+            23
         ],
-        "position": 2,
+        "position": 5,
         "prediction": [
             "b",
-            "S",
-            "B"
+            "S"
         ],
         "rule": "B -> b S"
     },
@@ -304,10 +319,9 @@
         "parents": [
             24
         ],
-        "position": 3,
+        "position": 6,
         "prediction": [
-            "S",
-            "B"
+            "S"
         ]
     },
     {
@@ -316,11 +330,10 @@
         "parents": [
             25
         ],
-        "position": 3,
+        "position": 6,
         "prediction": [
             "b",
-            "A",
-            "B"
+            "A"
         ],
         "rule": "S -> b A"
     },
@@ -328,53 +341,50 @@
         "id": 27,
         "isGoal": false,
         "parents": [
-            26
+            23
         ],
-        "position": 4,
+        "position": 5,
         "prediction": [
-            "A",
-            "B"
-        ]
+            "b"
+        ],
+        "rule": "B -> b"
     },
     {
         "id": 28,
-        "isGoal": false,
+        "isGoal": true,
         "parents": [
             27
         ],
-        "position": 4,
-        "prediction": [
-            "a",
-            "S",
-            "B"
-        ],
-        "rule": "A -> a S"
+        "position": 6,
+        "prediction": []
     },
     {
         "id": 29,
         "isGoal": false,
         "parents": [
-            28
+            10,
+            31
         ],
-        "position": 5,
+        "position": 3,
         "prediction": [
-            "S",
+            "a",
+            "B",
             "B"
-        ]
+        ],
+        "rule": "S -> a B"
     },
     {
         "id": 30,
         "isGoal": false,
         "parents": [
-            29
+            8
         ],
-        "position": 5,
+        "position": 2,
         "prediction": [
             "b",
-            "A",
             "B"
         ],
-        "rule": "S -> b A"
+        "rule": "B -> b"
     },
     {
         "id": 31,
@@ -382,9 +392,8 @@
         "parents": [
             30
         ],
-        "position": 6,
+        "position": 3,
         "prediction": [
-            "A",
             "B"
         ]
     },
@@ -394,51 +403,44 @@
         "parents": [
             31
         ],
-        "position": 6,
+        "position": 3,
         "prediction": [
-            "a",
-            "S",
-            "B"
+            "b",
+            "S"
         ],
-        "rule": "A -> a S"
+        "rule": "B -> b S"
     },
     {
         "id": 33,
         "isGoal": false,
         "parents": [
-            31
+            32
         ],
-        "position": 6,
+        "position": 4,
         "prediction": [
-            "b",
-            "A",
-            "A",
-            "B"
-        ],
-        "rule": "A -> b A A"
+            "S"
+        ]
     },
     {
         "id": 34,
         "isGoal": false,
         "parents": [
-            27
+            33
         ],
         "position": 4,
         "prediction": [
             "b",
-            "A",
-            "A",
-            "B"
+            "A"
         ],
-        "rule": "A -> b A A"
+        "rule": "S -> b A"
     },
     {
         "id": 35,
         "isGoal": false,
         "parents": [
-            3
+            31
         ],
-        "position": 1,
+        "position": 3,
         "prediction": [
             "b"
         ],
@@ -448,26 +450,24 @@
         "id": 36,
         "isGoal": false,
         "parents": [
-            3
+            35
         ],
-        "position": 1,
-        "prediction": [
-            "b",
-            "S"
-        ],
-        "rule": "B -> b S"
+        "position": 4,
+        "prediction": []
     },
     {
         "id": 37,
         "isGoal": false,
         "parents": [
-            1
+            8
         ],
-        "position": 0,
+        "position": 2,
         "prediction": [
-            "b",
-            "A"
+            "a",
+            "B",
+            "B",
+            "B"
         ],
-        "rule": "S -> b A"
+        "rule": "B -> a B B"
     }
 ]
