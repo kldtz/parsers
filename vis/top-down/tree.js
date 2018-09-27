@@ -1,4 +1,4 @@
-d3.json("tree-data/a-a-b-b-a-b-lexicographic-reverse.json").then(function (data) {
+d3.json("tree-data/a-a-b-b-a-b-lexicographic.json").then(function (data) {
     drawTree(data);
 });
 
