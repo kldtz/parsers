@@ -28,11 +28,13 @@ def dfs_search_all_tree(graph, start):
 def dfs_search_all_dag(graph, start):
     visited, stack = {}, [(start, None)]
     i = 0
+    edge = -1
     while stack:
         vertex, parent_id = stack.pop()
         if vertex not in visited:
             i += 1
-            json_node = {"id": i, "position": vertex.ind, "isGoal": False, "parents": [parent_id],
+            edge += 1
+            json_node = {"id": i, "position": vertex.ind, "isGoal": False, "parents": [{"parentId": parent_id, "edgeId": edge}],
                          'prediction': vertex.predictions}
             if graph.is_goal(vertex):
                 json_node["isGoal"] = True
@@ -42,7 +44,32 @@ def dfs_search_all_dag(graph, start):
                           sorted(graph.successors(vertex), key=lambda x: ''.join(x.predictions), reverse=False)])
             visited[vertex] = json_node
         else:
-            visited[vertex]["parents"].append(parent_id)
+            edge += 1
+            visited[vertex]["parents"].append({"parentId": parent_id, "edgeId": edge})
+    return visited.values()
+
+
+def bfs_search_all_dag(graph, start):
+    visited, queue = {}, [(start, None)]
+    i = 0
+    edge = -1
+    while queue:
+        vertex, parent_id = queue.pop(0)
+        if vertex not in visited:
+            i += 1
+            edge += 1
+            json_node = {"id": i, "position": vertex.ind, "isGoal": False, "parents": [{"parentId": parent_id, "edgeId": edge}],
+                         'prediction': vertex.predictions}
+            if graph.is_goal(vertex):
+                json_node["isGoal"] = True
+            if vertex.rule:
+                json_node["rule"] = str(vertex.rule)
+            queue.extend([(successor, i) for successor in
+                      sorted(graph.successors(vertex), key=lambda x: ''.join(x.predictions), reverse=False)])
+            visited[vertex] = json_node
+        else:
+            edge += 1
+            visited[vertex]["parents"].append({"parentId": parent_id, "edgeId": edge})
     return visited.values()
 
 
@@ -59,4 +86,4 @@ if __name__ == '__main__':
 
     vertices = sorted(parser.parse(tokens, dfs_search_all_dag), key=lambda x: x["id"])
     json_steps = json.dumps(vertices, indent=4, sort_keys=True)
-    write(json_steps, 'vis/top-down/dag-data/' + '-'.join(tokens) + '-lexicographic-reverse.json')
+    write(json_steps, 'vis/top-down/dag-data/dfs-lexicographic-reverse.json')

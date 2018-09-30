@@ -3,7 +3,10 @@
         "id": 1,
         "isGoal": false,
         "parents": [
-            null
+            {
+                "edgeId": 0,
+                "parentId": null
+            }
         ],
         "position": 0,
         "prediction": [
@@ -14,7 +17,10 @@
         "id": 2,
         "isGoal": false,
         "parents": [
-            1
+            {
+                "edgeId": 1,
+                "parentId": 1
+            }
         ],
         "position": 0,
         "prediction": [
@@ -27,7 +33,10 @@
         "id": 3,
         "isGoal": false,
         "parents": [
-            2
+            {
+                "edgeId": 2,
+                "parentId": 2
+            }
         ],
         "position": 1,
         "prediction": [
@@ -38,7 +47,10 @@
         "id": 4,
         "isGoal": false,
         "parents": [
-            3
+            {
+                "edgeId": 3,
+                "parentId": 3
+            }
         ],
         "position": 1,
         "prediction": [
@@ -52,7 +64,10 @@
         "id": 5,
         "isGoal": false,
         "parents": [
-            4
+            {
+                "edgeId": 4,
+                "parentId": 4
+            }
         ],
         "position": 2,
         "prediction": [
@@ -64,7 +79,10 @@
         "id": 6,
         "isGoal": false,
         "parents": [
-            5
+            {
+                "edgeId": 5,
+                "parentId": 5
+            }
         ],
         "position": 2,
         "prediction": [
@@ -79,7 +97,10 @@
         "id": 7,
         "isGoal": false,
         "parents": [
-            5
+            {
+                "edgeId": 6,
+                "parentId": 5
+            }
         ],
         "position": 2,
         "prediction": [
@@ -92,7 +113,10 @@
         "id": 8,
         "isGoal": false,
         "parents": [
-            7
+            {
+                "edgeId": 7,
+                "parentId": 7
+            }
         ],
         "position": 3,
         "prediction": [
@@ -103,8 +127,14 @@
         "id": 9,
         "isGoal": false,
         "parents": [
-            8,
-            25
+            {
+                "edgeId": 8,
+                "parentId": 8
+            },
+            {
+                "edgeId": 25,
+                "parentId": 25
+            }
         ],
         "position": 3,
         "prediction": [
@@ -118,7 +148,10 @@
         "id": 10,
         "isGoal": false,
         "parents": [
-            8
+            {
+                "edgeId": 9,
+                "parentId": 8
+            }
         ],
         "position": 3,
         "prediction": [
@@ -130,7 +163,10 @@
         "id": 11,
         "isGoal": false,
         "parents": [
-            10
+            {
+                "edgeId": 10,
+                "parentId": 10
+            }
         ],
         "position": 4,
         "prediction": []
@@ -139,7 +175,10 @@
         "id": 12,
         "isGoal": false,
         "parents": [
-            8
+            {
+                "edgeId": 11,
+                "parentId": 8
+            }
         ],
         "position": 3,
         "prediction": [
@@ -152,7 +191,10 @@
         "id": 13,
         "isGoal": false,
         "parents": [
-            12
+            {
+                "edgeId": 12,
+                "parentId": 12
+            }
         ],
         "position": 4,
         "prediction": [
@@ -163,8 +205,14 @@
         "id": 14,
         "isGoal": false,
         "parents": [
-            13,
-            27
+            {
+                "edgeId": 13,
+                "parentId": 13
+            },
+            {
+                "edgeId": 28,
+                "parentId": 27
+            }
         ],
         "position": 4,
         "prediction": [
@@ -177,7 +225,10 @@
         "id": 15,
         "isGoal": false,
         "parents": [
-            14
+            {
+                "edgeId": 14,
+                "parentId": 14
+            }
         ],
         "position": 5,
         "prediction": [
@@ -188,8 +239,14 @@
         "id": 16,
         "isGoal": false,
         "parents": [
-            15,
-            29
+            {
+                "edgeId": 15,
+                "parentId": 15
+            },
+            {
+                "edgeId": 31,
+                "parentId": 29
+            }
         ],
         "position": 5,
         "prediction": [
@@ -203,7 +260,10 @@
         "id": 17,
         "isGoal": false,
         "parents": [
-            15
+            {
+                "edgeId": 16,
+                "parentId": 15
+            }
         ],
         "position": 5,
         "prediction": [
@@ -215,7 +275,10 @@
         "id": 18,
         "isGoal": true,
         "parents": [
-            17
+            {
+                "edgeId": 17,
+                "parentId": 17
+            }
         ],
         "position": 6,
         "prediction": []
@@ -224,7 +287,10 @@
         "id": 19,
         "isGoal": false,
         "parents": [
-            15
+            {
+                "edgeId": 18,
+                "parentId": 15
+            }
         ],
         "position": 5,
         "prediction": [
@@ -237,7 +303,10 @@
         "id": 20,
         "isGoal": false,
         "parents": [
-            19
+            {
+                "edgeId": 19,
+                "parentId": 19
+            }
         ],
         "position": 6,
         "prediction": [
@@ -248,8 +317,14 @@
         "id": 21,
         "isGoal": false,
         "parents": [
-            20,
-            31
+            {
+                "edgeId": 20,
+                "parentId": 20
+            },
+            {
+                "edgeId": 34,
+                "parentId": 31
+            }
         ],
         "position": 6,
         "prediction": [
@@ -262,7 +337,10 @@
         "id": 22,
         "isGoal": false,
         "parents": [
-            20
+            {
+                "edgeId": 21,
+                "parentId": 20
+            }
         ],
         "position": 6,
         "prediction": [
@@ -275,7 +353,10 @@
         "id": 23,
         "isGoal": false,
         "parents": [
-            13
+            {
+                "edgeId": 22,
+                "parentId": 13
+            }
         ],
         "position": 4,
         "prediction": [
@@ -288,7 +369,10 @@
         "id": 24,
         "isGoal": false,
         "parents": [
-            5
+            {
+                "edgeId": 23,
+                "parentId": 5
+            }
         ],
         "position": 2,
         "prediction": [
@@ -302,7 +386,10 @@
         "id": 25,
         "isGoal": false,
         "parents": [
-            24
+            {
+                "edgeId": 24,
+                "parentId": 24
+            }
         ],
         "position": 3,
         "prediction": [
@@ -314,7 +401,10 @@
         "id": 26,
         "isGoal": false,
         "parents": [
-            25
+            {
+                "edgeId": 26,
+                "parentId": 25
+            }
         ],
         "position": 3,
         "prediction": [
@@ -328,7 +418,10 @@
         "id": 27,
         "isGoal": false,
         "parents": [
-            26
+            {
+                "edgeId": 27,
+                "parentId": 26
+            }
         ],
         "position": 4,
         "prediction": [
@@ -340,7 +433,10 @@
         "id": 28,
         "isGoal": false,
         "parents": [
-            27
+            {
+                "edgeId": 29,
+                "parentId": 27
+            }
         ],
         "position": 4,
         "prediction": [
@@ -354,7 +450,10 @@
         "id": 29,
         "isGoal": false,
         "parents": [
-            28
+            {
+                "edgeId": 30,
+                "parentId": 28
+            }
         ],
         "position": 5,
         "prediction": [
@@ -366,7 +465,10 @@
         "id": 30,
         "isGoal": false,
         "parents": [
-            29
+            {
+                "edgeId": 32,
+                "parentId": 29
+            }
         ],
         "position": 5,
         "prediction": [
@@ -380,7 +482,10 @@
         "id": 31,
         "isGoal": false,
         "parents": [
-            30
+            {
+                "edgeId": 33,
+                "parentId": 30
+            }
         ],
         "position": 6,
         "prediction": [
@@ -392,7 +497,10 @@
         "id": 32,
         "isGoal": false,
         "parents": [
-            31
+            {
+                "edgeId": 35,
+                "parentId": 31
+            }
         ],
         "position": 6,
         "prediction": [
@@ -406,7 +514,10 @@
         "id": 33,
         "isGoal": false,
         "parents": [
-            31
+            {
+                "edgeId": 36,
+                "parentId": 31
+            }
         ],
         "position": 6,
         "prediction": [
@@ -421,7 +532,10 @@
         "id": 34,
         "isGoal": false,
         "parents": [
-            27
+            {
+                "edgeId": 37,
+                "parentId": 27
+            }
         ],
         "position": 4,
         "prediction": [
@@ -436,7 +550,10 @@
         "id": 35,
         "isGoal": false,
         "parents": [
-            3
+            {
+                "edgeId": 38,
+                "parentId": 3
+            }
         ],
         "position": 1,
         "prediction": [
@@ -448,7 +565,10 @@
         "id": 36,
         "isGoal": false,
         "parents": [
-            3
+            {
+                "edgeId": 39,
+                "parentId": 3
+            }
         ],
         "position": 1,
         "prediction": [
@@ -461,7 +581,10 @@
         "id": 37,
         "isGoal": false,
         "parents": [
-            1
+            {
+                "edgeId": 40,
+                "parentId": 1
+            }
         ],
         "position": 0,
         "prediction": [
