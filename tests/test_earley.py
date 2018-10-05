@@ -1,6 +1,6 @@
 import unittest
 
-from parsers.earley import *
+from parsers.earley.earley_recognizer import *
 
 
 class TestEarleyParser(unittest.TestCase):

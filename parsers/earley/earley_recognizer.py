@@ -1,7 +1,7 @@
 import logging
 from functools import wraps
 
-from .shared import Rule, read_lexicon, read_grammar, INDENT
+from parsers.shared import Rule, read_lexicon, read_grammar, INDENT
 
 
 class State:
